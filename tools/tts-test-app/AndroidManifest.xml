@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.raybanfreedom.ttstest">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <application android:label="Glasses speech test" android:debuggable="true"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        <activity android:name=".TtsTestActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".SpeechReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="dev.raybanfreedom.ttstest.SPEAK" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".SpeechService" android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+    </application>
+</manifest>

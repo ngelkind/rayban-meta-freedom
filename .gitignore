@@ -1,0 +1,25 @@
+# Captures, firmware, and decompiled app can be large and contain personal data
+# (account IDs, tokens, device serials, private media). Keep them OUT of git.
+captures/
+firmware/
+apk/
+hardware/
+
+# Never commit secrets or keys
+*.pem
+*.key
+*.p12
+*.keystore
+secrets*
+*token*
+*.env
+.env
+
+# Python / env
+.venv/
+__pycache__/
+*.pyc
+.idea/
+
+# OS
+.DS_Store
